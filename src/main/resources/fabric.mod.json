@@ -1,0 +1,40 @@
+{
+	"schemaVersion": 1,
+	"id": "crafthelper",
+	"version": "${version}",
+	"name": "CraftHelper",
+	"description": "A tool mod for 1.21.1 Fabric Minecraft",
+	"authors": [
+		"Skrepy2233"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/Skrepy0/CraftHelper"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/crafthelper/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"com.crafthelper.CraftHelper"
+		],
+		"fabric-datagen": [
+			"com.crafthelper.CraftHelperDataGenerator"
+		],
+      "client":[
+        "com.crafthelper.CraftHelperClient"
+      ]
+	},
+	"mixins": [
+		"crafthelper.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.18.2",
+		"minecraft": "~1.21.1",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
