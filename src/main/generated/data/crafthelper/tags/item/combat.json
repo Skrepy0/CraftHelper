@@ -1,0 +1,25 @@
+{
+  "values": [
+    "#minecraft:swords",
+    "#minecraft:axes",
+    "#minecraft:pickaxes",
+    "#minecraft:head_armor",
+    "#minecraft:chest_armor",
+    "#minecraft:leg_armor",
+    "#minecraft:foot_armor",
+    "#minecraft:arrows",
+    "minecraft:bow",
+    "minecraft:crossbow",
+    "minecraft:trident",
+    "minecraft:mace",
+    "minecraft:shield",
+    "minecraft:arrow",
+    "minecraft:spectral_arrow",
+    "minecraft:tipped_arrow",
+    "minecraft:totem_of_undying",
+    "minecraft:experience_bottle",
+    "minecraft:iron_horse_armor",
+    "minecraft:golden_horse_armor",
+    "minecraft:diamond_horse_armor"
+  ]
+}
