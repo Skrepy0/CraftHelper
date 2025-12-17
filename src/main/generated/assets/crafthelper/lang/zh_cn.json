@@ -1,0 +1,10 @@
+{
+  "screen.custom_item.select_item.button.back": "× 返回",
+  "screen.custom_item.select_item.button.done": "确定",
+  "screen.custom_item.select_item.item_type.all": "全部",
+  "screen.custom_item.select_item.item_type.others": "其他",
+  "screen.custom_item.select_item.text_field": "搜索物品...",
+  "screen.custom_item.selectedItemInfo.itemId": "物品id: ",
+  "screen.custom_item.selectedItemInfo.selected": "选中: ",
+  "screen.custom_item.title": "物品选择器 - "
+}

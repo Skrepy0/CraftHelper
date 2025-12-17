@@ -1,0 +1,10 @@
+{
+  "screen.custom_item.select_item.button.back": "× Back",
+  "screen.custom_item.select_item.button.done": "Done",
+  "screen.custom_item.select_item.item_type.all": "All Items",
+  "screen.custom_item.select_item.item_type.others": "Others",
+  "screen.custom_item.select_item.text_field": "Search Item...",
+  "screen.custom_item.selectedItemInfo.itemId": "id: ",
+  "screen.custom_item.selectedItemInfo.selected": "Selected: ",
+  "screen.custom_item.title": "Item Selector - "
+}
