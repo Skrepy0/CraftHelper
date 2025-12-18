@@ -1,12 +1,12 @@
-// 1.21.1	2025-12-17T19:59:37.227583	CraftHelper/Tags for minecraft:item
+// 1.21.1	2025-12-18T22:38:36.9883667	CraftHelper/Tags for minecraft:item
 fc518f76bc1ad5c414354adbaab1308bc53866ae data\crafthelper\tags\item\tools_utilities.json
 93c8a04bf093fef0c9bd1ba36e0a6e80bbe569a0 data\crafthelper\tags\item\operator_utilities.json
 70ba8683cee5f82cfd310aef71e69d58f9726a19 data\crafthelper\tags\item\color_blocks.json
 660649d12e2b841446642eef2981655838247935 data\crafthelper\tags\item\food_drinks.json
 b76cfa9fbfc56fd65d607a3db06af8c4dd7554c9 data\crafthelper\tags\item\natural_blocks.json
 03fe2cba972a6f3b11daaac35a5938f127ec5b59 data\crafthelper\tags\item\spawn_eggs.json
-3594f975e3c4938cabd14f8e9c25895d65a9cf77 data\crafthelper\tags\item\building_blocks.json
+545d2329379ced36456a63f220a2dcf4a66619a5 data\crafthelper\tags\item\building_blocks.json
 f7743ed31b2f22420c32e225cc46a3de392c1cf4 data\crafthelper\tags\item\combat.json
 ce39f06de1028196d40a182bfdfb1300b75e3b37 data\crafthelper\tags\item\ingredients.json
-99d79820c453ea892accf58dcd2bd87ecb911a38 data\crafthelper\tags\item\redstone_blocks.json
 8f8dea6346175e14228c6b18549aafe65439b09d data\crafthelper\tags\item\functional_blocks.json
+f7665185e3865a74a60ba268bc1f3486961cac7b data\crafthelper\tags\item\redstone_blocks.json
