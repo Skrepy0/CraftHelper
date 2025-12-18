@@ -1,10 +1,18 @@
 {
+  "key.crafthelper.custom_item": "自定义物品界面",
+  "screen.custom_item.select_item.button.attribute": "属性",
   "screen.custom_item.select_item.button.back": "× 返回",
-  "screen.custom_item.select_item.button.done": "确定",
+  "screen.custom_item.select_item.button.done": "完成",
+  "screen.custom_item.select_item.button.enchant": "附魔属性",
+  "screen.custom_item.select_item.button.food": "食物属性",
+  "screen.custom_item.select_item.button.info": "信息属性",
+  "screen.custom_item.select_item.button.other": "其他属性",
+  "screen.custom_item.select_item.button.tool": "工具属性",
   "screen.custom_item.select_item.item_type.all": "全部",
   "screen.custom_item.select_item.item_type.others": "其他",
   "screen.custom_item.select_item.text_field": "搜索物品...",
   "screen.custom_item.selectedItemInfo.itemId": "物品id: ",
   "screen.custom_item.selectedItemInfo.selected": "选中: ",
+  "screen.custom_item.text.item_count": "物品数量",
   "screen.custom_item.title": "物品选择器 - "
 }
