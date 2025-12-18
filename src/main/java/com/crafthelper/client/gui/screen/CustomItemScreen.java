@@ -13,6 +13,7 @@ import net.minecraft.registry.Registries;
 import net.minecraft.text.Text;
 import org.lwjgl.glfw.GLFW;
 
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -65,8 +66,16 @@ public class CustomItemScreen extends Screen {
     private final float BOTTOM_BUTTON_AREA_HEIGHT_RATIO = 0.20f; // 底部按钮区域高度
 
     private ButtonWidget doneButton = null;
+    private ButtonWidget enchantButton = null;
+    private ButtonWidget attributeButton = null;
+    private ButtonWidget infoButton = null;
+    private ButtonWidget toolButton = null;
+    private ButtonWidget foodButton = null;
+    private ButtonWidget otherButton = null;
     // 关键：控制是否绘制模糊背景的标志
     private boolean shouldRenderBackground = false;
+
+    private static ArrayList<ButtonWidget> updateButtons = new ArrayList<>();
 
     public CustomItemScreen() {
         super(Text.literal("Item Selector"));
@@ -267,6 +276,13 @@ public class CustomItemScreen extends Screen {
     }
 
     /**
+     * 正则表达式判断字符串是否是正整数
+     */
+    private static boolean isPositiveInteger(String str) {
+        // 正则解释：^[1-9]表示第一位是1-9，\d*表示0个或多个数字，$表示字符串结束
+        return str != null && str.matches("^[1-9]\\d*$");
+    }
+    /**
      * 初始化搜索框
      */
     private void initSearchField() {
@@ -288,6 +304,26 @@ public class CustomItemScreen extends Screen {
             currentPage = 0;
         });
         this.addDrawableChild(searchField);
+
+        TextFieldWidget countSetTextField = new TextFieldWidget(
+                this.textRenderer,
+                width / 2 - fieldWidth / 15 + guiWidth / 20,
+                scaledY(0.9f),
+                fieldWidth / 8,
+                fieldHeight,
+                Text.literal("Item Count")
+        );
+        countSetTextField.setText("1");
+        countSetTextField.setChangedListener(text -> {
+            if (!isPositiveInteger(text)) {
+                for (ButtonWidget button : updateButtons) {
+                    button.active = false;
+                }
+            }else{
+                updateButtonState();
+            }
+        });
+        this.addDrawableChild(countSetTextField);
     }
 
     /**
@@ -397,7 +433,7 @@ public class CustomItemScreen extends Screen {
                                 prevPageButton.active = true;
                             }
                         })
-                .position(scaledX(MARGIN_RATIO) + buttonWidth + scaledWidth(0.20f), bottomAreaY)
+                .position(scaledX(MARGIN_RATIO) + buttonWidth + scaledWidth(0.15f), bottomAreaY)
                 .size(buttonWidth, buttonHeight)
                 .build();
         this.addDrawableChild(nextPageButton);
@@ -412,6 +448,85 @@ public class CustomItemScreen extends Screen {
         int bottomAreaY = scaledY(1 - BOTTOM_BUTTON_AREA_HEIGHT_RATIO);
         int margin = scaledWidth(MARGIN_RATIO);
 
+        // 设置附魔属性的按钮
+        enchantButton = ButtonWidget.builder(
+                        Text.translatable("screen.custom_item.select_item.button.enchant"),
+                        button -> {
+
+                        })
+                .position(guiLeft + guiWidth - 2 * buttonWidth - margin - scaledHeight(0.03f)
+                        , guiTop + buttonHeight + scaledHeight(0.45f))
+                .size(buttonWidth, buttonHeight)
+                .build();
+        this.addDrawableChild(enchantButton);
+        updateButtons.add(enchantButton);
+
+        // 设置属性的按钮
+        attributeButton = ButtonWidget.builder(
+                        Text.translatable("screen.custom_item.select_item.button.attribute"),
+                        button -> {
+
+                        })
+                .position(guiLeft + guiWidth - buttonWidth - margin
+                        , guiTop + buttonHeight + scaledHeight(0.45f))
+                .size(buttonWidth, buttonHeight)
+                .build();
+        this.addDrawableChild(attributeButton);
+        updateButtons.add(attributeButton);
+
+        // 设置显示信息的按钮
+        infoButton = ButtonWidget.builder(
+                        Text.translatable("screen.custom_item.select_item.button.info"),
+                        button -> {
+
+                        })
+                .position(guiLeft + guiWidth - 2 * buttonWidth - margin - scaledHeight(0.03f)
+                        , guiTop + buttonHeight + scaledHeight(0.45f)+ scaledWidth(0.06f))
+                .size(buttonWidth, buttonHeight)
+                .build();
+        this.addDrawableChild(infoButton);
+        updateButtons.add(infoButton);
+
+        // 设置工具属性的按钮
+        toolButton = ButtonWidget.builder(
+                        Text.translatable("screen.custom_item.select_item.button.tool"),
+                        button -> {
+
+                        })
+                .position(guiLeft + guiWidth - buttonWidth - margin
+                        , guiTop + buttonHeight + scaledHeight(0.45f)+ scaledWidth(0.06f))
+                .size(buttonWidth, buttonHeight)
+                .build();
+        this.addDrawableChild(toolButton);
+        updateButtons.add(toolButton);
+
+        // 设置食物属性的按钮
+        foodButton = ButtonWidget.builder(
+                        Text.translatable("screen.custom_item.select_item.button.food"),
+                        button -> {
+
+                        })
+                .position(guiLeft + guiWidth - 2 * buttonWidth - margin - scaledHeight(0.03f)
+                        , guiTop + buttonHeight + scaledHeight(0.45f)+ scaledWidth(0.12f))
+                .size(buttonWidth, buttonHeight)
+                .build();
+        this.addDrawableChild(foodButton);
+        updateButtons.add(foodButton);
+
+
+        // 设置其他属性的按钮
+        otherButton = ButtonWidget.builder(
+                        Text.translatable("screen.custom_item.select_item.button.other"),
+                        button -> {
+
+                        })
+                .position(guiLeft + guiWidth - buttonWidth - margin
+                        , guiTop + buttonHeight + scaledHeight(0.45f)+ scaledWidth(0.12f))
+                .size(buttonWidth, buttonHeight)
+                .build();
+        this.addDrawableChild(otherButton);
+        updateButtons.add(otherButton);
+
         // 确定按钮
         doneButton = ButtonWidget.builder(
                         Text.translatable("screen.custom_item.select_item.button.done"),
@@ -419,17 +534,18 @@ public class CustomItemScreen extends Screen {
                             // to do
                         })
                 .position(guiLeft + guiWidth - 2 * buttonWidth - margin - scaledHeight(0.03f),
-                        bottomAreaY + buttonHeight + scaledHeight(0.03f))
+                        bottomAreaY + buttonHeight + scaledHeight(0.04f))
                 .size(buttonWidth, buttonHeight)
                 .build();
         this.addDrawableChild(doneButton);
+        updateButtons.add(doneButton);
 
         // 关闭按钮
         this.addDrawableChild(ButtonWidget.builder(
                         Text.translatable("screen.custom_item.select_item.button.back"),
                         button -> this.close())
                 .position(guiLeft + guiWidth - buttonWidth - margin,
-                        bottomAreaY + buttonHeight + scaledHeight(0.03f))
+                        bottomAreaY + buttonHeight + scaledHeight(0.04f))
                 .size(buttonWidth, buttonHeight)
                 .build());
 
@@ -437,8 +553,10 @@ public class CustomItemScreen extends Screen {
     }
 
     private void updateButtonState() {
-        if (doneButton != null) {
-            doneButton.active = selectedItem != null;
+        for (ButtonWidget button : updateButtons) {
+            if (button != null) {
+                button.active = selectedItem != null;
+            }
         }
     }
 
@@ -555,6 +673,15 @@ public class CustomItemScreen extends Screen {
 
         // 7. 调用super.render()，此时其内部的renderBackground会被跳过，只绘制控件（最上层）
         super.render(context, mouseX, mouseY, delta);
+
+        context.drawCenteredTextWithShadow(
+                this.textRenderer,//
+
+                Text.translatable("screen.custom_item.text.item_count"),
+                width / 2-guiWidth/15,
+                scaledY(0.915f),
+                0xFFFFFF
+        );
     }
 
     /**
@@ -603,12 +730,12 @@ public class CustomItemScreen extends Screen {
      */
     private void renderPaginationInfo(DrawContext context) {
         int totalPages = Math.max(1, (int) Math.ceil((double) currentItems.size() / ITEMS_PER_PAGE));
-        String pageText = String.format(" %d / %d ", currentPage + 1, totalPages);
+        String pageText = String.format("%d / %d", currentPage + 1, totalPages);
 
         context.drawCenteredTextWithShadow(
                 this.textRenderer,
                 Text.literal(pageText),
-                scaledX(0.20f),
+                scaledX(0.175f),
                 scaledY(0.918f),
                 0xAAAAAA
         );
