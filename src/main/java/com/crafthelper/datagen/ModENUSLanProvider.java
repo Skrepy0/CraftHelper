@@ -17,9 +17,20 @@ public class ModENUSLanProvider extends FabricLanguageProvider {
         translationBuilder.add("screen.custom_item.select_item.text_field","Search Item...");
         translationBuilder.add("screen.custom_item.select_item.item_type.all","All Items");
         translationBuilder.add("screen.custom_item.select_item.item_type.others","Others");
+
+        translationBuilder.add("screen.custom_item.text.item_count","Count");
+        translationBuilder.add("screen.custom_item.select_item.button.enchant","Enchantments");
+        translationBuilder.add("screen.custom_item.select_item.button.attribute","Attributes");
+        translationBuilder.add("screen.custom_item.select_item.button.info","Info");
+        translationBuilder.add("screen.custom_item.select_item.button.tool","Tool Attributes");
+        translationBuilder.add("screen.custom_item.select_item.button.food","Food Attributes");
+        translationBuilder.add("screen.custom_item.select_item.button.other","Other Attributes");
+
         translationBuilder.add("screen.custom_item.select_item.button.done","Done");
         translationBuilder.add("screen.custom_item.select_item.button.back","× Back");
         translationBuilder.add("screen.custom_item.selectedItemInfo.selected","Selected: ");
         translationBuilder.add("screen.custom_item.selectedItemInfo.itemId","id: ");
+        translationBuilder.add("key.categories.crafthelper","Crafthelper");
+        translationBuilder.add("key.crafthelper.custom_item","Custom Item");
     }
 }
