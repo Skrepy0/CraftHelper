@@ -247,7 +247,14 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(Items.POLISHED_BLACKSTONE_BRICKS)
                 .add(Items.CRACKED_POLISHED_BLACKSTONE_BRICKS)
                 .add(Items.CRYING_OBSIDIAN)
-                .add(Items.BELL);
+                .add(Items.BELL)
+                .add(Items.EXPOSED_COPPER_GRATE)
+                .add(Items.WEATHERED_COPPER_GRATE)
+                .add(Items.OXIDIZED_COPPER_GRATE)
+                .add(Items.WAXED_COPPER_GRATE)
+                .add(Items.WAXED_EXPOSED_COPPER_GRATE)
+                .add(Items.WAXED_WEATHERED_COPPER_GRATE)
+                .add(Items.WAXED_OXIDIZED_COPPER_GRATE);
 
         // 染色方块
         getOrCreateTagBuilder(ModItemTags.COLOR_BLOCKS)
@@ -562,13 +569,6 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(Items.HOPPER_MINECART)
                 // 铜相关红石组件
                 .add(Items.COPPER_GRATE)
-                .add(Items.EXPOSED_COPPER_GRATE)
-                .add(Items.WEATHERED_COPPER_GRATE)
-                .add(Items.OXIDIZED_COPPER_GRATE)
-                .add(Items.WAXED_COPPER_GRATE)
-                .add(Items.WAXED_EXPOSED_COPPER_GRATE)
-                .add(Items.WAXED_WEATHERED_COPPER_GRATE)
-                .add(Items.WAXED_OXIDIZED_COPPER_GRATE)
                 .add(Items.COPPER_BULB)
                 .add(Items.EXPOSED_COPPER_BULB)
                 .add(Items.WEATHERED_COPPER_BULB)
